@@ -1,76 +1,37 @@
-# Plantilla · Presentación de mapeo curricular
+# Mapeo curricular · Areandina · Contaduría Pública
 
-Plantilla HTML para la presentación que **Simuladores de Negocios Colombia** lleva a los
-directores de programa y decanos de una facultad de ciencias económicas o administrativas.
+Presentación de 11 láminas para la dirección del programa de Contaduría Pública de la
+Fundación Universitaria del Área Andina: qué asignaturas del plan de estudios (pensum 202660)
+pueden trabajarse con un simulador PraxiLab, con cuál y en qué semestre.
 
-No presenta un simulador: muestra, pregrado por pregrado, **qué asignaturas del plan de
-estudios pueden trabajarse hoy con un simulador CompanyGame**, con cuál y en qué semestre.
-
-Para una presentación de bienvenida de un simulador concreto (FoodCompany, BusinessGlobal…),
-la plantilla es otra: `plantilla-presentacion/`.
-
----
-
-## Empezar
-
-1. Copia la carpeta y renómbrala `<universidad>-mapeo-presentacion/`.
-2. Sigue `INSTRUCCIONES.md`.
-
-El detalle completo —tokens, estructura de slides, paleta y criterio editorial— está en
-`CLAUDE.md`.
-
-## Estructura
-
-```
-plantilla-mapeo-curricular/
-├── index.html            la presentación entera (HTML + CSS + JS, sin dependencias)
-├── CLAUDE.md             documento de trabajo: tokens, slides, paleta, criterio editorial
-├── INSTRUCCIONES.md      la versión corta
-├── build-artifact.js     genera la versión publicable como Artifact de Claude
-└── assets/
-    ├── logo-sdn.png          logo blanco (portada y cierre)
-    ├── logo-sdn-color.png    logo a color (referencia de marca)
-    ├── cartelera.jpg         portafolio CompanyGame
-    └── avatares.png          avatares de IA
-```
-
-## Contenido — 13 slides con 5 programas (≈ 25–28 minutos)
-
-1. Portada y contexto
-2. Cartelera de simuladores CompanyGame · **fijo**
-3. Lo que ya se puede hacer hoy
-4. Alcance por programa
-5. **Ficha por programa** — bloque repetible, una por pregrado
-6. Asignaturas transversales · condicional
-7. Los tres modelos de uso docente (A / B / C) · **fijo**
-8. Evidencia de aprendizaje y acreditación
-9. Cierre y contacto · **fijo**
-
-El número total de slides depende de cuántos pregrados tenga la facultad. **La numeración y el
-contador se calculan solos**: se pueden añadir o quitar fichas sin tocar nada más.
-
-Las **fichas por programa** son el eje de la reunión: cada una lista, con semestre y simulador,
-las asignaturas del pregrado que entran tal cual y las que entran con adaptación. Ocupan unos
-10 de los ~26 minutos y sirven además como material para enviar después.
+- **4 asignaturas con simulador**: 2 de aplicación directa y 2 como apoyo al curso, entre 5.º y 7.º semestre.
+- **5 simuladores**: AudiTek, RentaSim, TerriTek, ProcediTek y SosteniTek ESG.
 
 ## Cómo verla
 
-Abre `index.html` en cualquier navegador. Navegación con flechas en pantalla, teclado
-(← →, espacio) y swipe en móvil. Las capturas se amplían al hacer clic.
+- **Sin cuenta ni conexión:** `presentacion.html` es la presentación completa en un solo archivo (tipografías y logotipo incrustados). Se abre con doble clic en cualquier navegador: flechas o clic para avanzar, `N` notas del presentador, `F` pantalla completa. Para PDF: Imprimir → Guardar como PDF.
+- **De dónde sale cada dato:** el Excel del mapeo (cifras y asignaturas) y la guía docente de cada simulador (formato, horas y entregables).
 
-## Identidad visual
+## Qué hay aquí
 
-Paleta tomada por muestreo del logo de Simuladores de Negocios Colombia: cyan `#16AAE2`,
-azul `#0E73B8` y los grises `#737170` / `#989998` / `#CECBCB`. **Es la identidad del
-distribuidor y no cambia según la universidad.** El detalle está en `CLAUDE.md`.
+```
+presentacion.html                                 GENERADO: la presentación completa en un solo archivo.
+deck.json                                         Índice: título, orden, secciones y tipografías.
+slides/<id>.html                                  Una lámina por archivo: un solo <section id="<id>"> de 1920×1080
+                                                  con estilos en línea. Las notas del presentador van en su <aside>.
+tools/                                            El generador y sus recursos (tipografías, logotipo), copiados
+                                                  del repo de marca. Ver tools/README.md.
+```
 
-## Tecnología
+El Excel del mapeo y el documento de trabajo (`CLAUDE.md`) son internos y no se suben al repositorio.
 
-HTML5 + CSS3 + JavaScript vanilla, todo embebido en `index.html`. Sin frameworks.
+## Cómo actualizarla
 
----
+1. Edita la lámina en `slides/`. Si cambias el número de láminas o su orden, edita también `deck.json` (el `order` lista exactamente los archivos de `slides/`) y renumera los pies.
+2. Regenera `presentacion.html` con `node tools/presentacion-html.mjs .` desde esta carpeta. Nunca se edita a mano.
 
-Derivada del deck de la Universidad Santiago de Cali (agosto 2026), que sigue siendo el
-ejemplo completo de referencia.
+## Marca
 
-Simuladores de Negocios Colombia S.A.S. · Distribuidor autorizado CompanyGame
+Sigue la plantilla común de las guías docentes PraxiLab: papel y tinta, Archivo / Instrument Sans / Courier Prime, nada bajo 24 px, sin esquinas redondas. La franja va en el azul de marca y cada simulador conserva su matiz junto a su nombre.
+
+PraxiLab · Grupo Edutec · praxilab.app
